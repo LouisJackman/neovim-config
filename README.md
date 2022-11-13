@@ -12,7 +12,7 @@ Protocol)](https://en.wikipedia.org/wiki/Language_Server_Protocol).
 - Uses modern Neovim 0.8 features such as Lua-based autogroups and
   `vim.cmd.CMD`.
 - Declarative package definitions [with _exact_ pinned
-  versions](./user/package_versions.lua) for reproducibility.
+  versions](./lua/user/package_versions.lua) for reproducibility.
 - [Spacemacs](https://www.spacemacs.org/)/[Doom
   Emacs](https://github.com/doomemacs/doomemacs)-inspired keybindings which
   embrace Vim's keybindings but additionally utilise space as the leader key.
