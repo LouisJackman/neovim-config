@@ -28,8 +28,7 @@ Protocol)](https://en.wikipedia.org/wiki/Language_Server_Protocol).
   only the Nord colour scheme is still VimScript-based, as far as I know.
 - Try it out without installing anything on your main system. Use an image from
   my dockerfiles that combine this config with a preinstalled version of Neovim
-  0.8: `docker run -it --rm -v "$PWD:/home/user/workspace"
-  registry.gitlab.com/louis.jackman/dockerfiles/base-dev:0.0.7`.
+  0.8: `docker run -it --rm -v "$PWD:/home/user/workspace" registry.gitlab.com/louis.jackman/dockerfiles/base-dev:0.0.7`.
 
 ## Official Mirror of the GitLab Repository
 
