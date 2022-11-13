@@ -2,9 +2,10 @@
 
 My [Neovim](https://neovim.io/) configuration, as used by [my
 dockerfiles](https://gitlab.com/louis.jackman/dockerfiles) and elsewhere.
-Entirely [Lua-based](https://www.lua.org/about.html) and running on [Neovim
-0.8](https://github.com/neovim/neovim/releases/tag/v0.8.0). Reproducible with
-pinned third-party package versions, and focussed on [LSP (the Language Server
+Entirely [Lua](https://www.lua.org/about.html)-based and running on [Neovim
+0.8](https://github.com/neovim/neovim/releases/tag/v0.8.0). Reproducible [with
+pinned third-party package versions](./lua/user/package_versions.lua), and
+focussed on [LSP (the Language Server
 Protocol)](https://en.wikipedia.org/wiki/Language_Server_Protocol).
 
 - Pure Lua configuration, no VimScript.
@@ -29,6 +30,7 @@ Protocol)](https://en.wikipedia.org/wiki/Language_Server_Protocol).
 - Try it out without installing anything on your main system. Use an image from
   my dockerfiles that combine this config with a preinstalled version of Neovim
   0.8: `docker run -it --rm -v "$PWD:/home/user/workspace" registry.gitlab.com/louis.jackman/dockerfiles/base-dev:0.0.7`.
+  Once inside that container's shell, run `vi` or `nvim`.
 
 ## Official Mirror of the GitLab Repository
 
