@@ -35,8 +35,8 @@ Protocol)](https://en.wikipedia.org/wiki/Language_Server_Protocol).
 ## Official Mirror of the GitLab Repository
 
 This repository is currently hosted [on
-GitLab.com](https://gitlab.com/louis.jackman/dockerfiles). Official mirrors
-exist on [SourceHut](https://git.sr.ht/~louisjackman/dockerfiles) and
-[GitHub](https://github.com/LouisJackman/dockerfiles). At the moment, GitLab
+GitLab.com](https://gitlab.com/louis.jackman/neovim-config). Official mirrors
+exist on [SourceHut](https://git.sr.ht/~louisjackman/neovim-config) and
+[GitHub](https://github.com/LouisJackman/neovim-config). At the moment, GitLab
 is still the official hub for contributions such as PRs and issues.
 
