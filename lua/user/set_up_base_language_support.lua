@@ -16,11 +16,11 @@ return function()
 
     callback = function()
 
-      -- While Varnish's documentation uses 4-space indends, Fastly's variant
+      -- While Varnish's documentation uses 4-space indents, Fastly's variant
       -- uses 2 space-indents.
       vim.bo.shiftwidth = 2
 
-      -- Vim's syntax highlighting of Perl of close enough to VCL for this to
+      -- Vim's syntax highlighting of Perl is close enough to VCL for this to
       -- mostly work.
       vim.bo.filetype = 'perl'
     end,
