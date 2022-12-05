@@ -46,6 +46,19 @@ return {
       local trouble = require 'trouble'
       require 'telescope'.setup {
         defaults = {
+          file_ignore_patterns = {
+            '%.git',
+            'node_modules',
+            'vendor',
+            '%.vendor',
+            'venv',
+            '%.venv',
+            'target',
+            'build',
+            '%.pyc',
+            '__pycache__',
+            '%.cache',
+          },
           mappings = {
             i = { ['<c-t>'] = trouble.open_with_trouble },
             n = { ['<c-t>'] = trouble.open_with_trouble },
@@ -113,23 +126,13 @@ return {
   },
   ['nvim-treesitter/nvim-treesitter'] = {
     config = function()
+      require 'nvim-treesitter'.setup()
       require 'nvim-treesitter.configs'.setup {
         context_commentstring = {
           enable = true,
         },
       }
-
-      vim.api.nvim_create_autocmd('VimEnter', {
-        pattern = '*',
-
-        callback = function()
-          vim.cmd.TSUpdateSync()
-        end
-      })
     end,
-  },
-  ['JoosepAlviste/nvim-ts-context-commentstring'] = {
-    requires = {'nvim-treesitter/nvim-treesitter'},
   },
   ['romgrk/nvim-treesitter-context'] = {
     requires = {'nvim-treesitter/nvim-treesitter'},
@@ -201,14 +204,14 @@ return {
       require 'surround'.setup {
         mappings_style = 'surround',
       }
-    end
+    end,
   },
   ['phaazon/hop.nvim'] = {
     config = function()
       require 'hop'.setup {
         keys = 'etovxqpdygfblzhckisuran',
       }
-    end
+    end,
   },
 }
 

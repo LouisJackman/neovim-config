@@ -27,7 +27,7 @@ return function()
   opt.textwidth = 80
   opt.wildmenu = true
   opt.wildmode = {'longest:full', 'full'}
-  opt.wrap = true
+  opt.wrap = false
   opt.writebackup = false
 end
 

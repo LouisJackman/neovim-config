@@ -4,7 +4,6 @@ local function tag(t) return {'tag', t} end
 local function commit(c) return {'commit', c} end
 
 return utils.fail_on_missing_lookups {
-  ['JoosepAlviste/nvim-ts-context-commentstring'] = commit '4d3a68c41a53add8804f471fcc49bb398fe8de08',
   ['L3MON4D3/LuaSnip']                            = tag    'v1.0.0',
   ['TimUntersberger/neogit']                      = commit '2a71a5595b49da8a21a20ab8644df9ad0b856ebb',
   ['arcticicestudio/nord-vim']                    = tag    'v0.19.0',
@@ -24,7 +23,7 @@ return utils.fail_on_missing_lookups {
   ['nvim-lua/plenary.nvim']                       = commit '9e7c62856e47053ec7b17f82c5da0f1e678d92c8',
   ['nvim-lualine/lualine.nvim']                   = commit 'a52f078026b27694d2290e34efa61a6e4a690621',
   ['nvim-telescope/telescope.nvim']               = tag    '0.1.0',
-  ['nvim-treesitter/nvim-treesitter']             = commit 'aebc6cf6bd4675ac86629f516d612ad5288f7868',
+  ['nvim-treesitter/nvim-treesitter']             = commit 'e71dfc1e7a3e7a7782a3c5e62e7de5993149a261',
   ['phaazon/hop.nvim']                            = tag    'v2.0.2',
   ['rcarriga/nvim-dap-ui']                        = tag    'v2.0.0',
   ['romgrk/nvim-treesitter-context']              = commit '8d0759eb798fee2e1201b26c3279713ac67c44c2',
