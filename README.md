@@ -10,7 +10,7 @@ Protocol)](https://en.wikipedia.org/wiki/Language_Server_Protocol).
 
 - Pure Lua configuration, no VimScript.
 - Expects LSP-based tooling by default and accomodates it.
-- Declarative package definitions [with _exact_ pinned
+- Declarative package definitions [with exact pinned
   versions](./lua/user/package_versions.lua) for reproducibility.
 - [Spacemacs](https://www.spacemacs.org/)/[Doom
   Emacs](https://github.com/doomemacs/doomemacs)-inspired keybindings which
@@ -21,10 +21,8 @@ Protocol)](https://en.wikipedia.org/wiki/Language_Server_Protocol).
 - **Try it out without installing anything on your main system, even if you
   don't have Neovim.** Use an image from my dockerfiles that combine this config
   with a preinstalled version of Neovim 0.8:
-  `docker run -it --rm -v "$PWD:/home/user/workspace" registry.gitlab.com/louis.jackman/dockerfiles/base-dev:0.0.7`.
+  `docker run -it --rm -v "$PWD:/home/user/workspace" registry.gitlab.com/louis.jackman/dockerfiles/base-dev:0.0.21`.
   Once inside that container's shell, run `vi` or `nvim`.
-- Uses modern Neovim 0.8 features such as Lua-based autogroups and
-  `vim.cmd.CMD`.
 - The ability to add `additional_setup.lua` files in derived environments for
   additional custom configuration -- used in [my
   dockerfiles](https://gitlab.com/louis.jackman/dockerfiles) for
@@ -32,8 +30,8 @@ Protocol)](https://en.wikipedia.org/wiki/Language_Server_Protocol).
   and LSP configurations.
 - Lua-based packages used for third party packages whenever possible; currently
   only the Nord colour scheme is still VimScript-based, as far as I know.
-- A single flag for disabling all third-party packages while retaining the
-  configuration's core benefits. Run it fully-fledged within chroot jails but
+- A single flag for disabling all downloaded packages while retaining the
+  configuration's core benefits. Run it fully-fledged within chroot jails, but
   run a more minimal version on your main system to reduce the impact of
   potential [supply chain
   attacks](https://en.wikipedia.org/wiki/Supply_chain_attack) against Neovim
@@ -67,8 +65,7 @@ To add your own configuration, the best way is to add a new file called
 the file with three _optional_ keys defined:
 
 - `use_third_party_packages`: a boolean value that determines whether to pull in
-  additional third party packages, i.e. anything outside of core Neovim and
-  [packer.nvim](https://github.com/wbthomason/packer.nvim).
+  third party packages, i.e. anything outside of core Neovim.
 - `pre_init`: a function called before the configuration's main setup.
 - `post_init`: a function called after the configuration's main setup.
 

@@ -112,7 +112,7 @@ function packer_blocking_sync()
   until completed
 end
 
-local function set_up(third_party_packages, opts)
+local function set_up(packages)
   local packer_version = package_versions['wbthomason/packer.nvim']
   local packer_version_type = packer_version[1]
   local packer_version_value = packer_version[2]
@@ -130,24 +130,20 @@ local function set_up(third_party_packages, opts)
     [packer_version_type] = packer_version_value,
   }
 
-  if opts.use_third_party_packages then
-    local normalised_packages = make_packages {
-      versioned_against = package_versions,
-      third_party_packages,
-    }
-    packer.use(normalised_packages)
-  end
+  local normalised_packages = make_packages {
+    versioned_against = package_versions,
+    packages,
+  }
+  packer.use(normalised_packages)
 
   if did_bootstrap_packer then
     print('As packer.nvim was bootstrapped, running `packer.sync()`...')
     packer_blocking_sync()
     print('Finished `packer.sync()`.')
 
-    if opts.use_third_party_packages then
-      print('As packer.nvim was bootstrapped, running `TSUpdateSync` from nvim-treesitter...')
-      vim.cmd.TSUpdateSync()
-      print('Finished `TSUpdateSync`')
-    end
+    print('As packer.nvim was bootstrapped, running `TSUpdateSync` from nvim-treesitter...')
+    vim.cmd.TSUpdateSync()
+    print('Finished `TSUpdateSync`')
   end
 end
 
