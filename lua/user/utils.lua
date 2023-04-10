@@ -29,6 +29,11 @@ local function lock_down_mode_line()
   opt.modelines = 0
 end
 
+local function set_up_lua_based_filetype_detection()
+  vim.g.do_filetype_lua = 1
+  vim.g.did_load_filetypes = 0
+end
+
 local function lookup_derived_environment()
   -- Let derived environments extend this configuration by declaring their own
   -- two optional hooks: one runs before standard initialisation, the other runs
@@ -80,9 +85,10 @@ local function lookup_derived_environment()
 end
 
 return {
-  nop                        = nop,
-  fail_on_missing_lookups    = fail_on_missing_lookups,
-  lock_down_mode_line        = lock_down_mode_line,
-  lookup_derived_environment = lookup_derived_environment,
+  nop                                 = nop,
+  fail_on_missing_lookups             = fail_on_missing_lookups,
+  lock_down_mode_line                 = lock_down_mode_line,
+  set_up_lua_based_filetype_detection = set_up_lua_based_filetype_detection,
+  lookup_derived_environment          = lookup_derived_environment,
 }
 

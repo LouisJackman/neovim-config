@@ -15,6 +15,7 @@ local function init()
 
   set_options()
   utils.lock_down_mode_line()
+  utils.set_up_lua_based_filetype_detection()
   bind_keys()
   set_up_base_language_support()
 

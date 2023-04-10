@@ -81,7 +81,7 @@ local function bootstrap_packer(packer_commit)
       error("package.nvim was missing, but did not successfully bootstrap due to failed git reset of packer.nvim's repository to pinned commit")
     end
 
-    vim.cmd.packadd 'packer.nvim'
+    vim.cmd 'packadd packer.nvim'
     print('package.nvim bootstrap completed.')
   end
 
@@ -108,7 +108,7 @@ function packer_blocking_sync()
   -- Therefore, this unfortunate spinlock is necessary. The sleep is used to
   -- avoid burning through the CPU too much while the operation completes.
   repeat
-    vim.cmd.sleep(1)
+    vim.cmd 'sleep 1'
   until completed
 end
 
@@ -142,7 +142,7 @@ local function set_up(packages)
     print('Finished `packer.sync()`.')
 
     print('As packer.nvim was bootstrapped, running `TSUpdateSync` from nvim-treesitter...')
-    vim.cmd.TSUpdateSync()
+    vim.cmd 'TSUpdateSync'
     print('Finished `TSUpdateSync`')
   end
 end

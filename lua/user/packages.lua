@@ -2,7 +2,7 @@ return {
 
   ['arcticicestudio/nord-vim'] = {
     config = function()
-      vim.cmd.colorscheme 'nord'
+      vim.cmd 'colorscheme nord'
     end,
   },
   ['kyazdani42/nvim-tree.lua'] = {
@@ -14,7 +14,7 @@ return {
         },
       }
 
-      vim.keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle, {silent = true})
+      vim.keymap.set('n', '<C-n>', function() vim.cmd 'NvimTreeToggle' end, {silent = true})
     end,
   },
   ['lewis6991/gitsigns.nvim'] = {
@@ -38,10 +38,10 @@ return {
 
     config = function()
       local set = vim.keymap.set
-      set('n', '<leader>ff', function() vim.cmd.Telescope 'find_files' end)
-      set('n', '<leader>fg', function() vim.cmd.Telescope 'live_grep' end)
-      set('n', '<leader>fb', function() vim.cmd.Telescope 'buffers' end)
-      set('n', '<leader>fh', function() vim.cmd.Telescope 'help_tags' end)
+      set('n', '<leader>ff', function() vim.cmd 'Telescope find_files' end)
+      set('n', '<leader>fg', function() vim.cmd 'Telescope live_grep' end)
+      set('n', '<leader>fb', function() vim.cmd 'Telescope buffers' end)
+      set('n', '<leader>fh', function() vim.cmd 'Telescope help_tags' end)
 
       local trouble = require 'trouble'
       require 'telescope'.setup {
@@ -72,11 +72,11 @@ return {
 
     config = function()
       local set = vim.keymap.set
-      set('n', '<leader>fu', function() vim.cmd.Telescope 'lsp_references' end, {silent = true})
-      set('n', '<leader>gd', function() vim.cmd.Telescope 'lsp_definitions' end, {silent = true})
+      set('n', '<leader>fu', function() vim.cmd 'Telescope lsp_references' end, {silent = true})
+      set('n', '<leader>gd', function() vim.cmd 'Telescope lsp_definitions' end, {silent = true})
       set('n', '<leader>rn', vim.lsp.buf.rename, {silent = true})
-      set('n', '<leader>xD', function() vim.cmd.Telescope 'lsp_workspace_diagnostics' end, {silent = true})
-      set('n', '<leader>xX', function() vim.lsp.Telescope 'lsp_workspace_code_actions' end, {silent = true})
+      set('n', '<leader>xD', function() vim.cmd 'Telescope lsp_workspace_diagnostics' end, {silent = true})
+      set('n', '<leader>xX', function() vim.lsp 'Telescope lsp_workspace_code_actions' end, {silent = true})
     end,
   },
   'dstein64/nvim-scrollview',
@@ -160,12 +160,12 @@ return {
       }
 
       local set = vim.keymap.set
-      set('n', '<leader>xx', vim.cmd.TroubleToggle)
-      set('n', '<leader>xw', function() vim.cmd.TroubleToggle 'lsp_workspace_diagnostics' end)
-      set('n', '<leader>xd', function() vim.cmd.TroubleToggle 'lsp_document_diagnostics' end)
-      set('n', '<leader>xq', function() vim.cmd.TroubleToggle 'quickfix' end)
-      set('n', '<leader>xl', function() vim.cmd.TroubleToggle 'loclist' end)
-      set('n', 'gR', function() vim.cmd.TroubleToggle 'lsp_references' end)
+      set('n', '<leader>xx', function() vim.cmd 'TroubleToggle' end)
+      set('n', '<leader>xw', function() vim.cmd 'TroubleToggle lsp_workspace_diagnostics' end)
+      set('n', '<leader>xd', function() vim.cmd 'TroubleToggle lsp_document_diagnostics' end)
+      set('n', '<leader>xq', function() vim.cmd 'TroubleToggle quickfix' end)
+      set('n', '<leader>xl', function() vim.cmd 'TroubleToggle loclist' end)
+      set('n', 'gR', function() vim.cmd 'TroubleToggle lsp_references' end)
     end,
   },
   ['goolord/alpha-nvim'] = {
