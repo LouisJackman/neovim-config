@@ -4,8 +4,8 @@ My [Neovim](https://neovim.io/) configuration, as used by [my
 dockerfiles](https://gitlab.com/louis.jackman/dockerfiles) and elsewhere.
 Entirely [Lua](https://www.lua.org/about.html)-based and running on [Neovim
 0.8](https://github.com/neovim/neovim/releases/tag/v0.8.0). Reproducible [with
-pinned third-party package versions](./lua/user/package_versions.lua), and
-focused on [LSP (the Language Server
+pinned third-party package versions](./lazy-lock.json), and focused on [LSP
+(the Language Server
 Protocol)](https://en.wikipedia.org/wiki/Language_Server_Protocol).
 
 - Pure Lua configuration, no VimScript.
@@ -88,7 +88,7 @@ development that adds auto-completion and language support:
 local additional_setup = {}
 
 function additional_setup.post_init()
-  require 'packer'.use {
+  require 'lazy'.setup {
     {'pangloss/vim-javascript',    commit = 'c470ce1399a544fe587eab950f571c83cccfbbdc'},
     {'MaxMEllon/vim-jsx-pretty',   commit = '6989f1663cc03d7da72b5ef1c03f87e6ddb70b41'},
     {'leafgarland/typescript-vim', commit = '52f3ca3474d51f5021696ffb7297d989e49121ac'},
