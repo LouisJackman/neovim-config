@@ -1,11 +1,13 @@
 return {
 
-  ['arcticicestudio/nord-vim'] = {
+  {
+    'arcticicestudio/nord-vim',
     config = function()
-      vim.cmd 'colorscheme nord'
+      vim.cmd.colorscheme 'nord'
     end,
   },
-  ['kyazdani42/nvim-tree.lua'] = {
+  {
+    'kyazdani42/nvim-tree.lua',
     config = function()
       require 'nvim-tree'.setup {
         update_focused_file = {
@@ -14,34 +16,37 @@ return {
         },
       }
 
-      vim.keymap.set('n', '<C-n>', function() vim.cmd 'NvimTreeToggle' end, {silent = true})
+      vim.keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle, {silent = true})
     end,
   },
-  ['lewis6991/gitsigns.nvim'] = {
+  {
+    'lewis6991/gitsigns.nvim',
     config = function()
       require 'gitsigns'.setup()
     end,
   },
   'mfussenegger/nvim-dap',
-  ['rcarriga/nvim-dap-ui'] = {
-    requires = {'mfussenegger/nvim-dap'},
+  {
+    'rcarriga/nvim-dap-ui',
+    dependencies = {'mfussenegger/nvim-dap'},
 
     config = function()
       require 'dapui'.setup()
     end,
   },
-  ['nvim-telescope/telescope.nvim'] = {
-    requires = {
+  {
+    'nvim-telescope/telescope.nvim',
+    dependencies = {
       'nvim-lua/plenary.nvim',
       'folke/trouble.nvim',
     },
 
     config = function()
       local set = vim.keymap.set
-      set('n', '<leader>ff', function() vim.cmd 'Telescope find_files' end)
-      set('n', '<leader>fg', function() vim.cmd 'Telescope live_grep' end)
-      set('n', '<leader>fb', function() vim.cmd 'Telescope buffers' end)
-      set('n', '<leader>fh', function() vim.cmd 'Telescope help_tags' end)
+      set('n', '<leader>ff', function() vim.cmd.Telescope 'find_files' end)
+      set('n', '<leader>fg', function() vim.cmd.Telescope 'live_grep' end)
+      set('n', '<leader>fb', function() vim.cmd.Telescope 'buffers' end)
+      set('n', '<leader>fh', function() vim.cmd.Telescope 'help_tags' end)
 
       local trouble = require 'trouble'
       require 'telescope'.setup {
@@ -67,22 +72,24 @@ return {
       }
     end,
   },
-  ['neovim/nvim-lspconfig'] = {
-    requires = {'nvim-telescope/telescope.nvim'},
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {'nvim-telescope/telescope.nvim'},
 
     config = function()
       local set = vim.keymap.set
-      set('n', '<leader>fu', function() vim.cmd 'Telescope lsp_references' end, {silent = true})
-      set('n', '<leader>gd', function() vim.cmd 'Telescope lsp_definitions' end, {silent = true})
+      set('n', '<leader>fu', function() vim.cmd.Telescope 'lsp_references' end, {silent = true})
+      set('n', '<leader>gd', function() vim.cmd.Telescope 'lsp_definitions' end, {silent = true})
       set('n', '<leader>rn', vim.lsp.buf.rename, {silent = true})
-      set('n', '<leader>xD', function() vim.cmd 'Telescope lsp_workspace_diagnostics' end, {silent = true})
-      set('n', '<leader>xX', function() vim.lsp 'Telescope lsp_workspace_code_actions' end, {silent = true})
+      set('n', '<leader>xD', function() vim.cmd.Telescope 'lsp_workspace_diagnostics' end, {silent = true})
+      set('n', '<leader>xX', function() vim.lsp.Telescope 'lsp_workspace_code_actions' end, {silent = true})
     end,
   },
   'dstein64/nvim-scrollview',
   'L3MON4D3/LuaSnip',
-  ['hrsh7th/nvim-cmp'] = {
-    requires = {
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
       'hrsh7th/vim-vsnip',
       'hrsh7th/cmp-buffer',
     },
@@ -104,13 +111,16 @@ return {
       }
     end,
   },
-  ['hrsh7th/cmp-nvim-lsp'] = {
-    requires = {'neovim/nvim-lspconfig'},
+  {
+    'hrsh7th/cmp-nvim-lsp',
+    dependencies = {'neovim/nvim-lspconfig'},
   },
-  ['jose-elias-alvarez/null-ls.nvim'] = {
-    requires = {'nvim-lua/plenary.nvim'},
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    dependencies = {'nvim-lua/plenary.nvim'},
   },
-  ['nvim-lualine/lualine.nvim'] = {
+  {
+    'nvim-lualine/lualine.nvim',
     config = function()
       require 'lualine'.setup {
         options = {
@@ -119,12 +129,14 @@ return {
       }
     end,
   },
-  ['numToStr/Comment.nvim'] = {
+  {
+    'numToStr/Comment.nvim',
     config = function()
       require 'Comment'.setup()
     end,
   },
-  ['nvim-treesitter/nvim-treesitter'] = {
+  {
+    'nvim-treesitter/nvim-treesitter',
     config = function()
       require 'nvim-treesitter'.setup()
       require 'nvim-treesitter.configs'.setup {
@@ -134,17 +146,20 @@ return {
       }
     end,
   },
-  ['romgrk/nvim-treesitter-context'] = {
-    requires = {'nvim-treesitter/nvim-treesitter'},
+  {
+    'romgrk/nvim-treesitter-context',
+    dependencies = {'nvim-treesitter/nvim-treesitter'},
   },
-  ['TimUntersberger/neogit'] = {
-    requires = {'nvim-lua/plenary.nvim'},
+  {
+    'TimUntersberger/neogit',
+    dependencies = {'nvim-lua/plenary.nvim'},
 
     config = function()
       require 'neogit'.setup()
     end,
   },
-  ['folke/trouble.nvim'] = {
+  {
+    'folke/trouble.nvim',
     config = function()
       require 'trouble'.setup {
         fold_open = 'v',
@@ -168,8 +183,9 @@ return {
       set('n', 'gR', function() vim.cmd 'TroubleToggle lsp_references' end)
     end,
   },
-  ['goolord/alpha-nvim'] = {
-    requires = {
+  {
+    'goolord/alpha-nvim',
+    dependencies = {
       'folke/trouble.nvim',
       'TimUntersberger/neogit',
       'nvim-telescope/telescope.nvim',
@@ -199,14 +215,16 @@ return {
        alpha.setup(dashboard.opts)
     end,
   },
-  ['ur4ltz/surround.nvim'] = {
+  {
+    'ur4ltz/surround.nvim',
     config = function()
       require 'surround'.setup {
         mappings_style = 'surround',
       }
     end,
   },
-  ['phaazon/hop.nvim'] = {
+  {
+    'phaazon/hop.nvim',
     config = function()
       require 'hop'.setup {
         keys = 'etovxqpdygfblzhckisuran',

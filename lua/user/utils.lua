@@ -2,38 +2,6 @@ local opt = vim.opt
 
 local function nop() end
 
-local fail_on_missing_lookups
-do
-  local meta = {
-    __index = function(table, i)
-      local msg = string.format(
-        "undefined index %s on %s",
-        vim.inspect(i),
-        vim.inspect(table)
-      )
-      error(msg)
-    end,
-  }
-
-  fail_on_missing_lookups = function(table)
-    setmetatable(table, meta)
-    return table
-  end
-end
-
-local function lock_down_mode_line()
-  -- Addresses CVE-2019-12735
-  -- See https://nvd.nist.gov/vuln/detail/CVE-2019-12735
-
-  opt.modeline = false
-  opt.modelines = 0
-end
-
-local function set_up_lua_based_filetype_detection()
-  vim.g.do_filetype_lua = 1
-  vim.g.did_load_filetypes = 0
-end
-
 local function lookup_derived_environment()
   -- Let derived environments extend this configuration by declaring their own
   -- two optional hooks: one runs before standard initialisation, the other runs
@@ -86,9 +54,6 @@ end
 
 return {
   nop                                 = nop,
-  fail_on_missing_lookups             = fail_on_missing_lookups,
-  lock_down_mode_line                 = lock_down_mode_line,
-  set_up_lua_based_filetype_detection = set_up_lua_based_filetype_detection,
   lookup_derived_environment          = lookup_derived_environment,
 }
 
