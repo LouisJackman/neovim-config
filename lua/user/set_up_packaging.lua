@@ -32,10 +32,6 @@ local function set_up(opts)
   })
 
   if did_bootstrap_lazy then
-    print('As lazy.nvim was bootstrapped, running `:Lazy! install`...')
-    vim.cmd 'Lazy! install'
-    print('Finished `lazy.sync()`.')
-
     print('As lazy.nvim was bootstrapped, running `TSUpdateSync` from nvim-treesitter...')
     vim.cmd.TSUpdateSync()
     print('Finished `TSUpdateSync`')
