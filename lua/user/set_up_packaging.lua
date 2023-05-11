@@ -3,6 +3,7 @@ local fn = vim.fn
 
 local function bootstrap_lazy(lazy_version)
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+  vim.opt.rtp:prepend(lazypath)
 
   local did_bootstrap
   if vim.loop.fs_stat(lazypath) then
@@ -18,7 +19,6 @@ local function bootstrap_lazy(lazy_version)
     }
     did_bootstrap = true
   end
-  vim.opt.rtp:prepend(lazypath)
   return did_bootstrap
 end
 
@@ -27,7 +27,7 @@ local function set_up(opts)
 
   local did_bootstrap_lazy = bootstrap_lazy(lazy_version)
 
-  require 'lazy'.setup('user.packages', {
+  require 'lazy'.setup('user.plugins', {
     git = { timeout = 60 * 5 }
   })
 
