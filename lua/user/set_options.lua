@@ -2,15 +2,7 @@ local opt = vim.opt
 
 return function()
   opt.backup = false
-
-  -- With this line, the command line only appears when used. While elegant it
-  -- means any output must be 'acknowledged', otherwise stdin gets hijacked
-  -- until enter is pressed. Too many packages output messages excessively,
-  -- making it annoying in practice. Until the Neovim package ecosystem
-  -- addresses that, leave this line disabled.
-  --
-  -- opt.cmdheight = 0
-
+  opt.cmdheight = 0
   opt.completeopt = {'menuone', 'noselect'}
   opt.cursorline = true
   opt.expandtab = true
