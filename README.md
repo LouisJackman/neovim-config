@@ -40,10 +40,9 @@ Protocol)](https://en.wikipedia.org/wiki/Language_Server_Protocol).
 ## Official Mirror of the GitLab Repository
 
 This repository is currently hosted [on
-GitLab.com](https://gitlab.com/louis.jackman/neovim-config). Official mirrors
-exist on [SourceHut](https://git.sr.ht/~louisjackman/neovim-config) and
-[GitHub](https://github.com/LouisJackman/neovim-config). At the moment, GitLab
-is still the official hub for contributions such as PRs and issues.
+GitLab.com](https://gitlab.com/louis.jackman/neovim-config). An official mirror
+exists on [GitHub](https://github.com/LouisJackman/neovim-config). GitLab is
+still the official hub for contributions such as PRs and issues.
 
 ## Installing
 
@@ -111,4 +110,3 @@ end
 
 return additional_setup
 ```
-
